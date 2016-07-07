@@ -903,6 +903,7 @@ func (m *Memberlist) suspectNode(s *suspect) {
 		m.nodeLock.Unlock()
 
 		if timeout {
+			m.logger.Printf("[INFO] memberlist: Timeout exceeded (%d)", m.config.ProbeInterval)
 			m.suspectTimeout(state)
 		}
 	})

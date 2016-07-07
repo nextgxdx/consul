@@ -170,17 +170,17 @@ func DefaultLANConfig() *Config {
 		AdvertiseAddr:    "",
 		AdvertisePort:    7946,
 		ProtocolVersion:  ProtocolVersion2Compatible,
-		TCPTimeout:       30 * time.Second, // Timeout after 10 seconds
+		TCPTimeout:       45 * time.Second, // Timeout after 10 seconds
 		IndirectChecks:   3,                // Use 3 nodes for the indirect ping
 		RetransmitMult:   4,                // Retransmit a message 4 * log(N+1) nodes
 		SuspicionMult:    6,                // Suspect a node for 5 * log(N+1) * Interval
 		PushPullInterval: 60 * time.Second, // Low frequency
-		ProbeTimeout:     3 * time.Second,  // Reasonable RTT time for LAN
-		ProbeInterval:    5 * time.Second,  // Failure check every second
+		ProbeTimeout:     5 * time.Second,  // Reasonable RTT time for LAN
+		ProbeInterval:    10 * time.Second,  // Failure check every second
 		DisableTcpPings:  false,            // TCP pings are safe, even with mixed versions
 
-		GossipNodes:    4,                      // Gossip to 3 nodes
-		GossipInterval: 500 * time.Millisecond, // Gossip more rapidly
+		GossipNodes:    3,                      // Gossip to 3 nodes
+		GossipInterval: 1 * time.Second, // Gossip more rapidly
 
 		EnableCompression: true, // Enable compression by default
 
